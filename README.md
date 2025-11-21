@@ -39,7 +39,3 @@ Implemented several improvements to boost speed and efficiency:
 - Resolved layout and compatibility issues  
 - Ensured smooth experience on mobile, tablet, and desktop devices  
 
----
-
-## 📁 **Project Folder Structure**
-
