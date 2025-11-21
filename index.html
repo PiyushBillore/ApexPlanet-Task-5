@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Weather Dashboard — Final Project</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="title-wrap">
+        <h1 class="title">Weather Dashboard</h1>
+        <p class="subtitle">Real-time weather • Forecast • Map</p>
+      </div>
+
+      <div class="controls">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Enter city (e.g., London)"
+          aria-label="Search city"
+        />
+        <button id="searchBtn" aria-label="Search">Search</button>
+        <button
+          id="geoBtn"
+          aria-label="Use current location"
+          title="Detect my location"
+        >
+          📍
+        </button>
+
+        <div class="toggles">
+          <label class="toggle">
+            <input id="unitToggle" type="checkbox" />
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">°C / °F</span>
+          </label>
+
+          <label class="overlay-toggle">
+            <input id="overlayToggle" type="checkbox" checked />
+            <span class="overlay-label">Map Temp Overlay</span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <h2>Recent / Favorites</h2>
+        <ul id="recentList" class="recent-list" aria-live="polite"></ul>
+        <button id="clearRecent" class="muted small">Clear Recent</button>
+      </aside>
+
+      <section class="main-panel">
+        <div
+          id="message"
+          class="message"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <section id="currentCard" class="card current-card hidden">
+          <div class="card-header">
+            <div>
+              <h2 id="cityName"></h2>
+              <p id="dateTime" class="muted"></p>
+            </div>
+            <div class="temp-large">
+              <img id="weatherIcon" alt="weather icon" />
+              <div class="temp-val">
+                <span id="temp"></span> <span id="unitLabel">°C</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body grid-2">
+            <div class="left">
+              <p id="description" class="muted big"></p>
+              <p>
+                <strong>Feels like:</strong> <span id="feels"></span>
+                <span id="unitLabel2">°C</span>
+              </p>
+              <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
+              <p><strong>Wind:</strong> <span id="wind"></span> m/s</p>
+            </div>
+
+            <div class="right">
+              <p><strong>Pressure:</strong> <span id="pressure"></span> hPa</p>
+              <p>
+                <strong>Visibility:</strong> <span id="visibility"></span> km
+              </p>
+              <p><strong>Clouds:</strong> <span id="clouds"></span>%</p>
+              <p><strong>Sunrise:</strong> <span id="sunrise"></span></p>
+              <p><strong>Sunset:</strong> <span id="sunset"></span></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="map-section hidden" id="mapSection">
+          <h3>City Location</h3>
+          <div
+            id="map"
+            style="height: 320px; border-radius: 10px; margin-top: 10px"
+          ></div>
+        </section>
+
+        <section id="forecast" class="forecast hidden">
+          <h3>5-Day Forecast</h3>
+          <div id="forecastCards" class="forecast-cards"></div>
+        </section>
+      </section>
+    </main>
+
+  
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
